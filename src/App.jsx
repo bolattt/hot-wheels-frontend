@@ -12,10 +12,10 @@ function App() {
       <Router>
         <Navbar />
         <Routes>
-          <Route paht="/" element={<Welcome />} />
-          <Route paht="/index" element={<Index />} />
-          <Route paht="/show" element={<Show />} />
-          <Route paht="/edit" element={<Edit />} />
+          <Route path="/" element={<Welcome />} />
+          <Route path="/index" element={<Index />} />
+          <Route path="/show" element={<Show />} />
+          <Route path="/edit" element={<Edit />} />
         </Routes>
       </Router>
     </div>
