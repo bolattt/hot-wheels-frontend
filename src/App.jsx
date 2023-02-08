@@ -8,7 +8,7 @@ import Welcome from "./pages/Welcome";
 
 function App() {
   return (
-    <div className="App">
+    <div className="App bg-green-400 w-full min-h-screen">
       <Router>
         <Navbar />
         <Routes>
