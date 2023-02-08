@@ -1,35 +1,12 @@
 export default function Welcome() {
   return (
-    <section class="bg-gray-900 text-white w-full">
-      <div class="mx-auto w-full px-4 py-32 lg:flex lg:h-screen lg:items-center">
-        <div class="mx-auto max-w-3xl text-center">
-          <h1 class="bg-gradient-to-r from-green-300 via-blue-500 to-purple-600 bg-clip-text text-3xl font-extrabold text-transparent sm:text-5xl">
-            Understand User Flow.
-            <span class="sm:block"> Increase Conversion. </span>
-          </h1>
-
-          <p class="mx-auto mt-4 max-w-xl sm:text-xl sm:leading-relaxed">
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nesciunt
-            illo tenetur fuga ducimus numquam ea!
-          </p>
-
-          <div class="mt-8 flex flex-wrap justify-center gap-4">
-            <a
-              class="block w-full rounded border border-blue-600 bg-blue-600 px-12 py-3 text-sm font-medium text-white hover:bg-transparent hover:text-white focus:outline-none focus:ring active:text-opacity-75 sm:w-auto"
-              href="/get-started"
-            >
-              Get Started
-            </a>
-
-            <a
-              class="block w-full rounded border border-blue-600 px-12 py-3 text-sm font-medium text-white hover:bg-blue-600 focus:outline-none focus:ring active:bg-blue-500 sm:w-auto"
-              href="/about"
-            >
-              Learn More
-            </a>
-          </div>
-        </div>
-      </div>
+    <section className="bg-gray-900 text-white w-full h-screen flex items-center bg-[url(https://cdn.discordapp.com/attachments/1008571084225912872/1072801302985322568/arbwar_diecast_cars_c51eaf79-802d-4a3c-adcf-ebec052a2478.png)] bg-cover bg-no-repeat bg-top flex justify-center">
+      <button
+        type="button"
+        class="text-white bg-[#050708] hover:bg-[#050708]/80 focus:ring-4 focus:outline-none focus:ring-[#050708]/50 font-medium rounded-lg text-sm px-6 py-4 text-center inline-flex items-center dark:hover:bg-[#050708]/40 dark:focus:ring-gray-600 mr-2 mb-2"
+      >
+        Start Collecting
+      </button>
     </section>
   );
 }

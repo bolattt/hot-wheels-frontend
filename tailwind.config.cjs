@@ -6,7 +6,11 @@ module.exports = {
     "node_modules/flowbite-react/**/*.{js,jsx,ts,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      gridTemplateColumns: {
+        fluid: "repeat(auto-fit,minmax(18rem,1fr))",
+      },
+    },
   },
   plugins: [require("flowbite/plugin")],
 };

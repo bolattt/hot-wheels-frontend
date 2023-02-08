@@ -8,7 +8,8 @@ import Welcome from "./pages/Welcome";
 
 function App() {
   return (
-    <div className="App bg-green-400 w-full min-h-screen">
+    <div className="App bg-gradient-to-r from-purple-500 to-pink-500 w-full min-h-screen ">
+      {/* px-16 pt-36 pb-24 */}
       <Router>
         <Navbar />
         <Routes>
