@@ -3,6 +3,7 @@ import React from "react";
 function NewCollectionForm() {
   return (
     <form>
+      <h2 className="text-lg font-bold ">Add A New Collection</h2>
       <div className="mb-6">
         <label
           for="name"

@@ -1,6 +1,7 @@
 export default function NewCarForm() {
   return (
     <form>
+      <h2 className="text-lg font-bold ">Add A New Car</h2>
       <div className="mb-6">
         <label
           for="name"
