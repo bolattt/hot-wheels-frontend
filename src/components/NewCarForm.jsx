@@ -1,10 +1,36 @@
+import { useState } from "react";
+import axios from "axios";
+
+const API = import.meta.env.VITE_API_URL;
 export default function NewCarForm() {
+  const [newCar, setNewCar] = useState({
+    name: "",
+    quantity: "",
+    series: "",
+    sku: "",
+    image_link: "",
+    collection: "",
+  });
+
+  function handleChange(e) {
+    const newCarCopy = { ...newCar };
+    newCarCopy[e.target.id] = e.target.value;
+    setNewCar(newCarCopy);
+  }
+
+  async function handleSubmit(e) {
+    e.preventDefault();
+    console.log(newCar);
+    const res = await axios.post(API + "/cars", newCar);
+    const data = await res.data;
+    console.log(data);
+  }
   return (
-    <form>
-      <h2 className="text-lg font-bold ">Add A New Car</h2>
+    <form onSubmit={handleSubmit}>
+      <h2 className="text-xl font-bold ">Add A New Car</h2>
       <div className="mb-6">
         <label
-          for="name"
+          htmlFor="name"
           className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
         >
           Hotwheels Name
@@ -12,6 +38,8 @@ export default function NewCarForm() {
         <input
           type="name"
           id="name"
+          value={newCar.name}
+          onChange={handleChange}
           className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light"
           placeholder="Name"
           required
@@ -19,7 +47,7 @@ export default function NewCarForm() {
       </div>
       <div className="mb-6">
         <label
-          for="quantity"
+          htmlFor="quantity"
           className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
         >
           Quantity
@@ -27,6 +55,8 @@ export default function NewCarForm() {
         <input
           type="number"
           id="quantity"
+          value={newCar.quantity}
+          onChange={handleChange}
           className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light"
           placeholder="Quantity"
           required
@@ -35,88 +65,74 @@ export default function NewCarForm() {
 
       <div className="mb-6">
         <label
-          for="year"
+          htmlFor="series"
           className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
         >
-          Released Year
-        </label>
-        <input
-          type="year"
-          id="year"
-          className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light"
-          placeholder="Released Year"
-        />
-      </div>
-      <div className="mb-6">
-        <label
-          for="year"
-          className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-        >
-          Color
+          Series
         </label>
         <input
           type="text"
-          id="color"
+          id="series"
+          value={newCar.series}
+          onChange={handleChange}
           className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light"
-          placeholder="Color"
+          placeholder="Series eg. Monster Jam"
         />
       </div>
       <div className="mb-6">
         <label
-          for="image-link"
+          htmlFor="sku"
+          className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+        >
+          SKU
+        </label>
+        <input
+          type="text"
+          id="sku"
+          value={newCar.sku}
+          onChange={handleChange}
+          className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light"
+          placeholder="SKU eg.HGP05"
+        />
+      </div>
+      <div className="mb-6">
+        <label
+          htmlFor="image_link"
           className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
         >
           Image Link
         </label>
         <input
           type="text"
-          id="image-line"
+          id="image_link"
+          value={newCar.imageLink}
+          onChange={handleChange}
           className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light"
           placeholder="Image Link"
         />
       </div>
       <div className="mb-6">
         <label
-          for="collection-id"
+          htmlFor="collection"
           className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
         >
           Collection
         </label>
         <input
           type="number"
-          id="collection-id"
+          id="collection"
+          value={newCar.collection}
+          onChange={handleChange}
           className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light"
           placeholder="Collection"
         />
       </div>
-      <div className="flex items-start mb-6">
-        <div className="flex items-center h-5">
-          <input
-            id="terms"
-            type="checkbox"
-            value=""
-            className="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-blue-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800"
-            required
-          />
-        </div>
-        <label
-          for="terms"
-          className="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
-        >
-          I agree with the{" "}
-          <a
-            href="#"
-            className="text-blue-600 hover:underline dark:text-blue-500"
-          >
-            terms and conditions
-          </a>
-        </label>
-      </div>
+
       <button
         type="submit"
         className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
       >
-        Register new account
+        Add A New Car
       </button>
     </form>
   );

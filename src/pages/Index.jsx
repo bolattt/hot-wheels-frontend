@@ -1,11 +1,11 @@
 import Car from "../components/Car";
 import Collection from "../components/Collection";
 import useFetch from "../hooks/useFetch";
-const URL = import.meta.env.VITE_API_URL;
+const API = import.meta.env.VITE_API_URL;
 
 export default function Index() {
-  const { data: cars, error, loading } = useFetch(URL + "/cars");
-  const { data: collections } = useFetch(URL + "/collections");
+  const { data: cars, error, loading } = useFetch(API + "/cars");
+  const { data: collections } = useFetch(API + "/collections");
   console.log(cars);
   console.log(collections);
   return (

@@ -6,11 +6,12 @@ import Index from "./pages/Index";
 import Show from "./pages/Show";
 import New from "./pages/New";
 import Welcome from "./pages/Welcome";
+import "./assets/blank-script.otf";
 
 function App() {
   return (
-    <div className="App bg-gradient-to-r from-purple-500 to-pink-500 w-full min-h-screen ">
-      {/* px-16 pt-36 pb-24 */}
+    // <div className="App bg-gradient-to-r from-purple-500 to-pink-500 w-full min-h-screen ">
+    <div className="App w-full min-h-screen">
       <Router>
         <Navbar />
         <Routes>

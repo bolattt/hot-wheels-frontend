@@ -1,0 +1,13 @@
+.App {
+  background: linear-gradient(140deg, #fa005a -21.39%, #93297f 47.58%), #520044;
+}
+
+@font-face {
+  font-family: "BlackScript";
+  src: local("BlackScript"), url("./assets/blank-script.otf") format("truetype");
+  font-weight: bold;
+}
+
+.font-face-black-script {
+  font-family: "BlackScript";
+}

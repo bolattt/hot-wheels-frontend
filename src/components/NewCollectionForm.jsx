@@ -3,10 +3,10 @@ import React from "react";
 function NewCollectionForm() {
   return (
     <form>
-      <h2 className="text-lg font-bold ">Add A New Collection</h2>
+      <h2 className="text-xl font-bold ">Add A New Collection</h2>
       <div className="mb-6">
         <label
-          for="name"
+          htmlFor="name"
           className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
         >
           Collection Name
@@ -23,7 +23,7 @@ function NewCollectionForm() {
         type="submit"
         className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
       >
-        Register new account
+        Add A New Collection
       </button>
     </form>
   );
