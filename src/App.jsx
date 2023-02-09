@@ -4,6 +4,7 @@ import Navbar from "./components/Navbar";
 import Edit from "./pages/Edit";
 import Index from "./pages/Index";
 import Show from "./pages/Show";
+import New from "./pages/New";
 import Welcome from "./pages/Welcome";
 
 function App() {
@@ -16,7 +17,8 @@ function App() {
           <Route path="/" element={<Welcome />} />
           <Route path="/index" element={<Index />} />
           <Route path="/show" element={<Show />} />
-          <Route path="/edit" element={<Edit />} />
+          <Route path="/new" element={<New />} />
+          <Route path="/cars/edit" element={<Edit />} />
         </Routes>
       </Router>
     </div>
