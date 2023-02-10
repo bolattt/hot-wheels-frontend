@@ -19,7 +19,8 @@ function App() {
           <Route path="/index" element={<Index />} />
           <Route path="/show" element={<Show />} />
           <Route path="/new" element={<New />} />
-          <Route path="/cars/edit" element={<Edit />} />
+          <Route path="/cars/edit/:id" element={<Edit />} />
+          <Route path="/collections/edit/:id" element={<Edit />} />
         </Routes>
       </Router>
     </div>
