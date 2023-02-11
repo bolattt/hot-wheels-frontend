@@ -13,7 +13,7 @@ export default function Index() {
       <h1 className="text-6xl mb-16">Collections</h1>
       <div className="grid gap-16 grid-cols-fluid ">
         {collections.map((collection) => (
-          <Collection collection={collection} />
+          <Collection collection={collection} key={collection.id} />
         ))}
       </div>
       <h1 className="text-6xl text-slate-200 my-16">Cars</h1>

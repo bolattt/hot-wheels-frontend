@@ -6,6 +6,8 @@ import Index from "./pages/Index";
 import Show from "./pages/Show";
 import New from "./pages/New";
 import Welcome from "./pages/Welcome";
+import EditCar from "./pages/EditCar";
+import EditCollection from "./pages/EditCollection";
 import "./assets/blank-script.otf";
 
 function App() {
@@ -17,10 +19,10 @@ function App() {
         <Routes>
           <Route path="/" element={<Welcome />} />
           <Route path="/index" element={<Index />} />
-          <Route path="/show" element={<Show />} />
           <Route path="/new" element={<New />} />
-          <Route path="/cars/edit/:id" element={<Edit />} />
-          <Route path="/collections/edit/:id" element={<Edit />} />
+          <Route path="/show/:id" element={<Show />} />
+          <Route path="/cars/:id/edit" element={<EditCar />} />
+          <Route path="/collections/:id/edit" element={<EditCollection />} />
         </Routes>
       </Router>
     </div>

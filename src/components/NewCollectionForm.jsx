@@ -14,7 +14,7 @@ function NewCollectionForm() {
   async function handleSubmit(e) {
     e.preventDefault();
     try {
-      const res = await axios.post(API + "/collection", { name });
+      const res = await axios.post(API + "/collections", { name });
       const data = await res.data;
       console.log(res);
       console.log(data);
