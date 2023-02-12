@@ -3,23 +3,24 @@ import axios from "axios";
 const API = import.meta.env.VITE_API_URL;
 
 function useCarFormHandle(id) {
-  //   const [car, setCar] = useState({
-  //     name: "",
-  //     quantity: "",
-  //     series: "",
-  //     sku: "",
-  //     image_link: "",
-  //     collection: "",
-  //   });
-  const [car, setCar] = useState([]);
+  const [car, setCar] = useState({
+    name: "",
+    quantity: "",
+    series: "",
+    sku: "",
+    image_link: "",
+    collection_id: "",
+  });
 
   useEffect(() => {
     const fetchCar = async (id) => {
-      const res = await axios.get(API + "/cars/" + id);
-      const savedCar = await res.data;
-      console.log(savedCar);
-      if (savedCar) {
-        setCar(savedCar);
+      if (id) {
+        const res = await axios.get(API + "/cars/" + id);
+        const savedCar = await res.data;
+        console.log(savedCar);
+        if (savedCar) {
+          setCar(savedCar);
+        }
       }
     };
     fetchCar(id);
@@ -35,10 +36,13 @@ function useCarFormHandle(id) {
 
   async function handleSubmit(e) {
     e.preventDefault();
-    console.log(car);
-    const res = await axios.post(API + "/cars", car);
-    const data = await res.data;
-    console.log(data);
+    try {
+      const res = await axios.post(API + "/cars", car);
+      const data = await res.data;
+      console.log(data);
+    } catch (error) {
+      console.log(error.message);
+    }
   }
 
   return {

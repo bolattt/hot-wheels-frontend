@@ -81,7 +81,7 @@ function CarForm({ car, handleChange, handleSubmit }) {
         <input
           type="text"
           id="image_link"
-          value={car.imageLink}
+          value={car.image_link}
           onChange={handleChange}
           className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light"
           placeholder="Image Link"
@@ -89,15 +89,15 @@ function CarForm({ car, handleChange, handleSubmit }) {
       </div>
       <div className="mb-6">
         <label
-          htmlFor="collection"
+          htmlFor="collection_id"
           className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
         >
           Collection
         </label>
         <input
           type="number"
-          id="collection"
-          value={car.collection}
+          id="collection_id"
+          value={car.collection_id}
           onChange={handleChange}
           className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light"
           placeholder="Collection"
