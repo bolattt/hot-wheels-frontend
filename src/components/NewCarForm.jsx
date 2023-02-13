@@ -16,7 +16,7 @@ export default function carForm() {
         handleChange={handleChange}
         handleSubmit={handleSubmit}
       />
-      {success && <SuccessToast />}
+      {success && <SuccessToast message="Crated a new car!" />}
       {error && <ErrorToast />}
     </>
   );

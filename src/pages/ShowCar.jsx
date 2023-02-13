@@ -39,7 +39,7 @@ export default function ShowCar() {
   return (
     <section className="mt-30 max-w-7xl mx-auto">
       <CarDetails car={car} setShowPopup={setShowPopup} />
-      {success && <SuccessToast />}
+      {success && <SuccessToast message="Deleted Successfully!" />}
       {error && <ErrorToast />}
       {showPopup && (
         <ConfirmModal handleDelete={handleDelete} setShowPopup={setShowPopup} />
