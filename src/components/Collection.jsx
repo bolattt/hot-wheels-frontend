@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 function Collection({ collection }) {
   return (
     // <div className="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-    <div className="w-full max-w-sm   rounded p-0.5 shadow-xl transition hover:-translate-y-1 border-2 border-l-orange-500 border-r-purple-500 border-t-red-500 border-b-purple-800 ">
+    <div className="w-full max-w-sm mx-auto   rounded p-0.5 shadow-xl transition hover:-translate-y-1 border-2 border-l-orange-500 border-r-purple-500 border-t-red-500 border-b-purple-800 ">
       <div className="flex justify-end px-4 pt-4"></div>
       <div className="flex flex-col items-center pb-10">
         <img

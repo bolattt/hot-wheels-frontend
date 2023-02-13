@@ -9,19 +9,19 @@ export default function Index() {
   console.log(cars);
   console.log(collections);
   return (
-    <div className="index  px-16 pt-36 pb-24">
-      <h1 className="text-6xl mb-16">Collections</h1>
+    <section className="index px-4  md:px-16 pt-36 pb-24">
+      <h1 className="text-6xl mb-16 text-center">Collections</h1>
       <div className="grid gap-16 grid-cols-fluid ">
         {collections.map((collection) => (
           <Collection collection={collection} key={collection.id} />
         ))}
       </div>
-      <h1 className="text-6xl text-slate-200 my-16">Cars</h1>
+      <h1 className="text-6xl text-slate-200 my-16 text-center">Cars</h1>
       <div className="grid gap-16 grid-cols-fluid ">
         {cars.map((car) => (
           <Car car={car} key={car.id} />
         ))}
       </div>
-    </div>
+    </section>
   );
 }

@@ -23,6 +23,7 @@ export default function ShowCar() {
       const deletedCar = await res.data;
       console.log(deletedCar);
       setSuccess(true);
+      setShowPopup(false);
       setTimeout(() => {
         navigate("/index");
       }, 1500);
