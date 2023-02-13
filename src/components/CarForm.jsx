@@ -1,6 +1,6 @@
 import React from "react";
 
-function CarForm({ car, handleChange, handleSubmit }) {
+function CarForm({ car, action, handleChange, handleSubmit }) {
   return (
     <form onSubmit={handleSubmit}>
       <h2 className="text-xl font-bold ">Add A New Car</h2>
@@ -108,7 +108,7 @@ function CarForm({ car, handleChange, handleSubmit }) {
         type="submit"
         className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
       >
-        Add A New Car
+        {action}
       </button>
     </form>
   );
