@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function ConfirmModal({ handleDelete, setShowPopup }) {
+export default function ConfirmModal({ handleDelete, setShowPopup, URL }) {
   return (
     <div class="rounded-lg bg-white p-8 shadow-2xl max-w-lg mx-auto absolute top-1/2 left-1/2 -translate-y-2/4 -translate-x-2/4">
       <h2 class="text-lg font-bold">Are you sure you want to do that?</h2>
@@ -11,7 +11,7 @@ export default function ConfirmModal({ handleDelete, setShowPopup }) {
 
       <div class="mt-8 flex items-center justify-end text-xs">
         <button
-          onClick={handleDelete}
+          onClick={() => handleDelete(URL)}
           type="button"
           class="rounded bg-green-50 px-4 py-2 font-medium text-green-600"
         >

@@ -14,9 +14,10 @@ export default function EditCar() {
     <section className="max-w-lg mx-auto pt-32 pb-12">
       <CarForm
         car={car}
+        title="Edit"
+        action="Save Edit"
         handleChange={handleChange}
         handleSubmit={handleSubmit}
-        action="Edit"
       />
       {success && <SuccessToast message="Edited successfully!" />}
       {error && <ErrorToast />}

@@ -1,5 +1,4 @@
 import CarForm from "./CarForm";
-import { useNavigate } from "react-router-dom";
 import useCarFormHandle from "../hooks/useCarFormHandle";
 import SuccessToast from "./SuccessToast";
 import ErrorToast from "./ErrorToast";
@@ -12,11 +11,11 @@ export default function carForm() {
     <>
       <CarForm
         car={car}
-        action="Create"
+        action="Add"
         handleChange={handleChange}
         handleSubmit={handleSubmit}
       />
-      {success && <SuccessToast message="Crated a new car!" />}
+      {success && <SuccessToast message="Created a new car!" />}
       {error && <ErrorToast />}
     </>
   );

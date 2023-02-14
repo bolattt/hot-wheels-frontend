@@ -1,6 +1,6 @@
-import React from "react";
 import { useParams } from "react-router-dom";
 import useFetch from "../hooks/useFetch";
+import CollectionDetails from "../components/CollectionDetails";
 const API = import.meta.env.VITE_API_URL;
 
 function ShowCollection() {
@@ -8,7 +8,7 @@ function ShowCollection() {
   const URL = `${API}/collections/${id}`;
   const { data: collection } = useFetch(URL);
 
-  return <div>ShowCollection</div>;
+  return <CollectionDetails collection={collection} />;
 }
 
 export default ShowCollection;

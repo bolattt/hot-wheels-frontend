@@ -1,9 +1,9 @@
 import React from "react";
 
-function CarForm({ car, action, handleChange, handleSubmit }) {
+function CarForm({ car, action, title, handleChange, handleSubmit }) {
   return (
     <form onSubmit={handleSubmit}>
-      <h2 className="text-xl font-bold ">Add A New Car</h2>
+      <h2 className="text-xl font-bold ">{title}</h2>
       <div className="mb-6">
         <label
           htmlFor="name"
