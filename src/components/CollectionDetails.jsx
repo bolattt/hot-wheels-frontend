@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 
-export default function CollectionDetails({ collection }) {
+export default function CollectionDetails({ collection, setShowPopup }) {
   const navigate = useNavigate();
 
   return (
@@ -22,7 +22,7 @@ export default function CollectionDetails({ collection }) {
           </p>
           <p className=" mb-8 text-2xl sm:mb-12">Series: {car.series} </p>
           <p className=" mb-8 text-2xl sm:mb-12">SKU: {car.sku} </p> */}
-          <div className="flex flex-col space-y-4 sm:items-center sm:justify-center sm:flex-row sm:space-y-0 sm:space-x-4 lg:justify-start">
+          <div className="mt-8 flex flex-col space-y-4 sm:items-center sm:justify-center sm:flex-row sm:space-y-0 sm:space-x-4 lg:justify-start ">
             <button
               onClick={() => navigate(`/collections/${collection.id}/edit`)}
               className="px-8 py-3 text-lg font-semibold rounded dark:bg-violet-400 dark:text-gray-900 border border-rounded hover:-translate-y-1 transition"

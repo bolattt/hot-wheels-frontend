@@ -1,12 +1,13 @@
 import { Link } from "react-router-dom";
 import wheel from "../assets/wheel-100.png";
+import profile from "../assets/profile.png";
 
 function Navbar() {
   return (
     <nav className="bg-white px-2 sm:px-4 py-2 dark:bg-gray-900 fixed w-full z-20 top-0 left-0 border-b border-gray-200 dark:border-gray-600">
       <div className="container flex flex-wrap items-center justify-between mx-auto">
         <Link to="/index" className="flex items-center">
-          <img src={wheel} className="h-16 mr-3 sm:h-9" alt="hotwheels Logo" />
+          <img src={wheel} className="h-8 mr-3 sm:h-10" alt="hotwheels Logo" />
 
           <span className="self-center text-5xl font-semibold whitespace-nowrap dark:text-white font-face-black-script">
             Hot Wheels

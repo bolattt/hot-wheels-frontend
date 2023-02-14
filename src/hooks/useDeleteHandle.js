@@ -4,8 +4,8 @@ import axios from "axios";
 
 function useDeleteHandle() {
   const navigate = useNavigate();
-  const [success, setSuccess] = useState(false);
-  const [error, setError] = useState(false);
+  const [deleteSuccess, setDeleteSuccess] = useState(false);
+  const [deleteError, setDeleteError] = useState(false);
   const [showPopup, setShowPopup] = useState(false);
 
   async function handleDelete(URL) {
@@ -14,23 +14,23 @@ function useDeleteHandle() {
       const res = await axios.delete(URL);
       const deletedItem = await res.data;
       console.log(deletedItem);
-      setSuccess(true);
+      setDeleteSuccess(true);
       setShowPopup(false);
       setTimeout(() => {
         navigate("/index");
       }, 1500);
-    } catch (error) {
-      setError(true);
-      console.log(error);
+    } catch (deleteError) {
+      setDeleteError(true);
+      console.log(deleteError);
       setTimeout(() => {
-        setError(false);
+        setDeleteError(false);
       }, 1500);
     }
   }
 
   return {
-    success,
-    error,
+    deleteSuccess,
+    deleteError,
     showPopup,
     handleDelete,
     setShowPopup,

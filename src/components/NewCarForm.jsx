@@ -11,6 +11,7 @@ export default function carForm() {
     <>
       <CarForm
         car={car}
+        title="Add a New Car"
         action="Add"
         handleChange={handleChange}
         handleSubmit={handleSubmit}
