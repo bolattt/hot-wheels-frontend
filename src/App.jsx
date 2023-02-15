@@ -10,11 +10,12 @@ import NotFound from "./pages/NotFound";
 import EditCollection from "./pages/EditCollection";
 import ShowCollection from "./pages/ShowCollection";
 import "./assets/blank-script.otf";
+import { auth } from "./firebase/firebaseConfig";
 
 function App() {
   return (
     // <div className="App bg-gradient-to-r from-purple-500 to-pink-500 w-full min-h-screen ">
-    <div className="App w-full min-h-screen">
+    <div className="App min-h-screen w-full">
       <Router>
         <Navbar />
         <Routes>
