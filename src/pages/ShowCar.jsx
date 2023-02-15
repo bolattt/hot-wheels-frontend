@@ -16,7 +16,7 @@ export default function ShowCar() {
     useDeleteHandle();
 
   return (
-    <section className="mt-30 max-w-7xl mx-auto">
+    <section className="mt-30 mx-auto max-w-7xl">
       <CarDetails car={car} setShowPopup={setShowPopup} />
       {deleteSuccess && <SuccessToast message="Deleted Successfully!" />}
       {deleteError && <ErrorToast />}

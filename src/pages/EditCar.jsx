@@ -11,7 +11,7 @@ export default function EditCar() {
   console.log(car);
 
   return (
-    <section className="max-w-lg mx-auto pt-32 pb-12">
+    <section className="mx-auto max-w-lg pt-32 pb-12">
       <CarForm
         car={car}
         title="Edit"
