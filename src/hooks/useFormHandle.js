@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
 function useFormHandle(url, data, setData, id) {
+  console.log("data is in formhandle", data);
   const navigate = useNavigate();
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState(false);
@@ -20,15 +21,17 @@ function useFormHandle(url, data, setData, id) {
   }, [id, url]);
 
   function handleChange(e) {
+    console.log(e.target.id);
     console.log(e.target.value);
     const dataCopy = { ...data };
     dataCopy[e.target.id] = e.target.value;
+
     setData(dataCopy);
   }
 
   async function handleSubmit(e, method, payload) {
     e.preventDefault();
-    console.log(url, data);
+    console.log(url, method, payload);
     try {
       let res;
       if (method === "post") {

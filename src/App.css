@@ -11,3 +11,26 @@
 .font-face-black-script {
   font-family: "BlackScript";
 }
+
+:root {
+  --red: #ee3a43;
+  --yellow: #fcdd00;
+  --blue: #0082c8;
+  --black: #11090a;
+  --white: #f2f2f2;
+  --orange: #f78934;
+}
+
+.collection-name {
+  background: #f85032;
+  background: linear-gradient(
+    to right,
+    #f85032 0%,
+    #f16f5c 50%,
+    #f6290c 51%,
+    #f02f17 71%,
+    #e73827 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}

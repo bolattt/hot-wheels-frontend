@@ -8,7 +8,10 @@ export default function CollectionDetails({ collection, setShowPopup }) {
       <div className="container flex flex-col justify-center p-6 mx-auto sm:py-12 lg:py-24 lg:flex-row lg:justify-between">
         <div className="flex items-center justify-center p-6 mt-8 lg:mt-0 h-72 sm:h-80 lg:h-96 xl:h-112 2xl:h-128">
           <img
-            src={collection.image_link}
+            src={
+              collection.image_link ||
+              "https://res.cloudinary.com/djwhc7rvy/image/upload/v1676420670/HW_rectangle_tall_2016_guide_7_ub9ejq.jpg"
+            }
             alt="car"
             className="object-contain h-72 sm:h-80 lg:h-96 xl:h-112 2xl:h-128"
           />
