@@ -1,37 +1,55 @@
 import { Link } from "react-router-dom";
 import wheel from "../assets/wheel-100.png";
 import profile from "../assets/profile.png";
+import { auth } from "../firebase/firebase";
+import { logout } from "../firebase/auth";
+import { useAuthState } from "react-firebase-hooks/auth";
 
 function Navbar() {
+  const [user] = useAuthState(auth);
+  console.log("navbar user", user);
   return (
-    <nav className="bg-white px-2 sm:px-4 py-2 dark:bg-gray-900 fixed w-full z-20 top-0 left-0 border-b border-gray-200 dark:border-gray-600">
-      <div className="container flex flex-wrap items-center justify-between mx-auto">
+    <nav className="fixed top-0 left-0 z-20 w-full border-b border-gray-200 bg-white px-2 py-2 dark:border-gray-600 dark:bg-gray-900 sm:px-4">
+      <div className="container mx-auto flex flex-wrap items-center justify-between">
         <Link to="/index" className="flex items-center">
-          <img src={wheel} className="h-8 mr-3 sm:h-10" alt="hotwheels Logo" />
+          <img src={wheel} className="mr-3 h-8 sm:h-10" alt="hotwheels Logo" />
 
-          <span className="self-center text-5xl font-semibold whitespace-nowrap dark:text-white font-face-black-script">
+          <span className="font-face-black-script self-center whitespace-nowrap text-5xl font-semibold dark:text-white">
             Hot Wheels
           </span>
         </Link>
         <div className="flex md:order-2">
-          <Link to="/new">
+          {!user && (
+            <Link to="/auth">
+              <button
+                type="button"
+                className="mr-3 rounded-lg bg-blue-700 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 md:mr-0"
+              >
+                Login
+              </button>
+            </Link>
+          )}
+
+          {user && (
             <button
+              onClick={logout}
               type="button"
-              className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-3 md:mr-0 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+              className="mr-3 rounded-lg bg-blue-700 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 md:mr-0"
             >
-              Add New
+              Logout
             </button>
-          </Link>
+          )}
+
           <button
             data-collapse-toggle="navbar-sticky"
             type="button"
-            className="inline-flex items-center p-2 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+            className="inline-flex items-center rounded-lg p-2 text-sm text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600 md:hidden"
             aria-controls="navbar-sticky"
             aria-expanded="false"
           >
             <span className="sr-only">Open main menu</span>
             <svg
-              className="w-6 h-6"
+              className="h-6 w-6"
               aria-hidden="true"
               fill="currentColor"
               viewBox="0 0 20 20"
@@ -46,14 +64,14 @@ function Navbar() {
           </button>
         </div>
         <div
-          className="items-center justify-between hidden w-full md:flex md:w-auto md:order-1"
+          className="hidden w-full items-center justify-between md:order-1 md:flex md:w-auto"
           id="navbar-sticky"
         >
-          <ul className="flex flex-col p-4 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+          <ul className="mt-4 flex flex-col rounded-lg border border-gray-100 bg-gray-50 p-4 dark:border-gray-700 dark:bg-gray-800 md:mt-0 md:flex-row md:space-x-8 md:border-0 md:bg-white md:text-sm md:font-medium md:dark:bg-gray-900">
             <li>
               <Link
                 to="/index"
-                className="block py-2 pl-3 pr-4 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white"
+                className="block rounded bg-blue-700 py-2 pl-3 pr-4 text-white dark:text-white md:bg-transparent md:p-0 md:text-blue-700"
                 aria-current="page"
               >
                 Home
@@ -62,7 +80,7 @@ function Navbar() {
             <li>
               <Link
                 to="/cars"
-                className="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-white dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
+                className="block rounded py-2 pl-3 pr-4 text-gray-700 hover:bg-gray-100 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white md:p-0 md:hover:bg-transparent md:hover:text-blue-700 md:dark:hover:bg-transparent md:dark:hover:text-white"
               >
                 Cars
               </Link>
@@ -70,17 +88,17 @@ function Navbar() {
             <li>
               <Link
                 to="/collections"
-                className="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-white dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
+                className="block rounded py-2 pl-3 pr-4 text-gray-700 hover:bg-gray-100 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white md:p-0 md:hover:bg-transparent md:hover:text-blue-700 md:dark:hover:bg-transparent md:dark:hover:text-white"
               >
                 Collections
               </Link>
             </li>
             <li>
               <Link
-                href="/new"
-                className="block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-white dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
+                to="/new"
+                className="block rounded py-2 pl-3 pr-4 text-gray-700 hover:bg-gray-100 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white md:p-0 md:hover:bg-transparent md:hover:text-blue-700 md:dark:hover:bg-transparent md:dark:hover:text-white"
               >
-                Add New Car
+                Add New
               </Link>
             </li>
           </ul>

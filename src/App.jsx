@@ -7,10 +7,10 @@ import Welcome from "./pages/Welcome";
 import EditCar from "./pages/EditCar";
 import ShowCar from "./pages/ShowCar";
 import NotFound from "./pages/NotFound";
+import SignupLogin from "./pages/SignupLogin";
 import EditCollection from "./pages/EditCollection";
 import ShowCollection from "./pages/ShowCollection";
 import "./assets/blank-script.otf";
-import { auth } from "./firebase/firebaseConfig";
 
 function App() {
   return (
@@ -26,6 +26,7 @@ function App() {
           <Route path="/cars/:id/edit" element={<EditCar />} />
           <Route path="/collections/:id" element={<ShowCollection />} />
           <Route path="/collections/:id/edit" element={<EditCollection />} />
+          <Route path="/auth" element={<SignupLogin />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </Router>
