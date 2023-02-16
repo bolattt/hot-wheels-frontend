@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { registerWithEmailAndPassword } from "../firebase/auth";
+import { useNavigate } from "react-router-dom";
 
 function Signup() {
   const [user, setUser] = useState({ name: "", email: "", password: "" });
@@ -12,13 +13,20 @@ function Signup() {
 
   async function handleSubmit(e) {
     e.preventDefault();
-    const newUser = await registerWithEmailAndPassword(
-      user.name,
-      user.email,
-      user.password
-    );
-    console.log("newUser", newUser);
+    const navigate = useNavigate();
+    try {
+      const newUser = await registerWithEmailAndPassword(
+        user.name,
+        user.email,
+        user.password
+      );
+      console.log("newUser", newUser);
+      if (newUser) {
+        navigate("/index");
+      }
+    } catch (error) {}
   }
+
   return (
     <form onSubmit={handleSubmit} className="mx-auto  max-w-md">
       <div className="mb-6">
