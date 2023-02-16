@@ -3,6 +3,7 @@ import { logInWithEmailAndPassword, signInWithGoogle } from "../firebase/auth";
 import { useNavigate } from "react-router-dom";
 import { auth } from "../firebase/firebase";
 import { useAuthState } from "react-firebase-hooks/auth";
+import { async } from "@firebase/util";
 
 function Login() {
   const [user, setUser] = useState({ email: "", password: "" });
@@ -28,6 +29,14 @@ function Login() {
       navigate("/index");
     } catch (error) {
       console.log(error);
+    }
+  }
+  async function googleLogin() {
+    try {
+      await signInWithGoogle();
+      navigate("/index");
+    } catch (error) {
+      console.log(error.message);
     }
   }
   console.log(firebaseUser);
@@ -76,7 +85,7 @@ function Login() {
         </button>
 
         <button
-          onClick={signInWithGoogle}
+          onClick={googleLogin}
           type="submit"
           className=" inline-block rounded-lg bg-blue-700 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
         >
