@@ -3,7 +3,6 @@ import { logInWithEmailAndPassword, signInWithGoogle } from "../firebase/auth";
 import { useNavigate } from "react-router-dom";
 import { auth } from "../firebase/firebase";
 import { useAuthState } from "react-firebase-hooks/auth";
-import { async } from "@firebase/util";
 
 function Login() {
   const [user, setUser] = useState({ email: "", password: "" });
