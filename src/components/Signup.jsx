@@ -1,8 +1,12 @@
 import { useState } from "react";
 import { registerWithEmailAndPassword } from "../firebase/auth";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
+
+const API = import.meta.env.VITE_API_URL;
 
 function Signup() {
+  const navigate = useNavigate();
   const [user, setUser] = useState({ name: "", email: "", password: "" });
 
   function handleChange(e) {
@@ -13,18 +17,27 @@ function Signup() {
 
   async function handleSubmit(e) {
     e.preventDefault();
-    const navigate = useNavigate();
     try {
       const newUser = await registerWithEmailAndPassword(
         user.name,
         user.email,
         user.password
       );
+      console.log("newUser uid ", newUser.uid);
+      const res = await axios.post(API + "/users", { uid: newUser.uid });
+      // const res = await axios.post(API + "/users", { uid: "def" });
+
+      console.log("res", res);
+      const data = res.data;
+      console.log(data);
+
       console.log("newUser", newUser);
-      if (newUser) {
-        navigate("/index");
-      }
-    } catch (error) {}
+      // if (newUser) {
+      //   navigate("/index");
+      // }
+    } catch (error) {
+      console.log(error.message);
+    }
   }
 
   return (
