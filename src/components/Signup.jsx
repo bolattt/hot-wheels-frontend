@@ -33,15 +33,9 @@ function Signup() {
       console.log(newUser);
       console.log("newUser uid ", newUser.uid);
       const res = await axios.post(API + "/users", { uid: newUser.uid });
-
-      console.log("res", res);
       const data = res.data;
       console.log(data);
-
-      console.log("newUser", newUser);
-      // if (newUser) {
-      //   navigate("/index");
-      // }
+      navigate("/index");
     } catch (error) {
       console.log(error.message);
     }
