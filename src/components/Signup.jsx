@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { getAuth, updateProfile } from "firebase/auth";
+
 import { registerWithEmailAndPassword } from "../firebase/auth";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
@@ -23,9 +25,14 @@ function Signup() {
         user.email,
         user.password
       );
+      const auth = getAuth();
+
+      await updateProfile(auth.currentUser, {
+        displayName: user.name,
+      });
+      console.log(newUser);
       console.log("newUser uid ", newUser.uid);
       const res = await axios.post(API + "/users", { uid: newUser.uid });
-      // const res = await axios.post(API + "/users", { uid: "def" });
 
       console.log("res", res);
       const data = res.data;

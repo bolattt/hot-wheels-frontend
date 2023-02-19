@@ -4,10 +4,22 @@ import profile from "../assets/profile.png";
 import { auth } from "../firebase/firebase";
 import { logout } from "../firebase/auth";
 import { useAuthState } from "react-firebase-hooks/auth";
+import { useState, useEffect } from "react";
 
 function Navbar() {
+  const [displayName, setDisplayName] = useState("");
   const [user] = useAuthState(auth);
-  console.log("navbar user", user);
+  useEffect(() => {
+    console.log("use effect was called");
+    console.log("user in useeffect", user);
+    setTimeout(() => {
+      if (user) {
+        setDisplayName(user.displayName);
+      }
+    }, 1000);
+  }, [user]);
+  // console.log("navbar user", user);
+  // console.log("navbar displayname", user?.displayName);
   return (
     <nav className="fixed top-0 left-0 z-20 w-full border-b border-gray-200 bg-white px-2 py-2 dark:border-gray-600 dark:bg-gray-900 sm:px-4">
       <div className="container mx-auto flex flex-wrap items-center justify-between">
@@ -31,13 +43,26 @@ function Navbar() {
           )}
 
           {user && (
-            <button
-              onClick={logout}
-              type="button"
-              className="mr-3 rounded-lg bg-blue-700 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 md:mr-0"
-            >
-              Logout
-            </button>
+            <>
+              {user?.photoURL ? (
+                <img
+                  className="mr-3 block h-8 w-8 self-center rounded-full"
+                  src={user?.photoURL}
+                  alt="user photo"
+                />
+              ) : (
+                <span className="align-center mr-3 flex  items-center rounded-full bg-slate-400 p-2">
+                  {displayName}
+                </span>
+              )}
+              <button
+                onClick={logout}
+                type="button"
+                className="mr-3 rounded-lg bg-blue-700 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 md:mr-0"
+              >
+                Logout
+              </button>
+            </>
           )}
 
           <button

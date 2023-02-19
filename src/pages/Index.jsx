@@ -12,7 +12,7 @@ export default function Index() {
   const [firebaseUser] = useAuthState(auth);
   const { data: dbUser } = useFetch(API + "/users/" + firebaseUser.uid);
   console.log(dbUser);
-  console.log("firebase uid", firebaseUser.uid);
+  // console.log("firebase uid", firebaseUser.uid);
   // console.log(cars);
   // console.log(collections);
   return (
